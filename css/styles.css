@@ -137,3 +137,59 @@ header p {
         height: 140px;
     }
 }
+/* Mobile Styles */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 10px 0;
+    }
+
+    .navbar a {
+        display: block;
+        padding: 10px;
+    }
+
+    .about-container {
+        width: 95%;
+        padding: 15px;
+    }
+
+    .team-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .team-card {
+        width: 90%;
+    }
+
+    .tech-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .tech-card {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* Smaller Mobile Screens */
+@media (max-width: 480px) {
+    .navbar a {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    .about-container {
+        padding: 10px;
+    }
+
+    .team-card {
+        padding: 12px;
+        width: 100%;
+    }
+
+    .tech-card {
+        padding: 8px 15px;
+    }
+}
