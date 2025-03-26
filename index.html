@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <title>Mini Games - Play Now!</title>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap">
+</head>
+<body>
+
+    <!-- Sidebar with Dropdown Menu -->
+    <div class="sidebar">
+        <h2>🎮 Mini Games</h2>
+        <div class="menu">
+            <button onclick="toggleMenu()">☰ Menu</button>
+            <div id="menu-items" class="menu-items">
+                <a href="index.html" class="active">🏠 Home</a>
+                <a href="about.html">ℹ️ About</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <header>
+            <h1>Welcome to Mini Games! 🎲</h1>
+            <p>Explore and play exciting mini-games below!</p>
+        </header>
+
+        <!-- Game Cards Section -->
+        <div class="game-container">
+            <!-- Game 1 -->
+            <div class="game-card">
+                <a href="games/game1/game1.html">
+                    <img src="game images/hangman-game.png" alt="Hang-Man">
+                    <div class="game-info">
+                        <h3>Hang-Man</h3>
+                        <p>"Guess letters to reveal the word before the hangman is complete!"</p>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Game 2 -->
+            <div class="game-card">
+                <a href="games/game2/game2.html">
+                    <img src="game images/blackjack.png" alt="Black-Jack">
+                    <div class="game-info">
+                        <h3>Black-Jack</h3>
+                        <p>🃏 Blackjack Game: A fun and interactive card game where you 
+                            try to beat the dealer by getting as close to 21 as possible without going over</p>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Game 3 -->
+            <div class="game-card">
+                <a href="games/game3/game3.html">
+                    <img src="images/game-thumbnails/game3.png" alt="Memory Game">
+                    <div class="game-info">
+                        <h3>Mathamatical logic</h3>
+                        <p>Simple to hard mathamatical  puzzles solve cheyyunna simple game</p>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Game 4 -->
+            <div class="game-card">
+                <a href="games/game4/game4.html">
+                    <img src="game images/tic-tac-toe.png" alt="tic-tac-toe">
+                    <div class="game-info">
+                        <h3>Tic-Tac-Toe</h3>
+                        <p>Strategy game where two players take turns marking Xs and Os on a 3x3 grid, 
+                            aiming to form a row, column, or diagonal of their symbol to win</p>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Game 5 -->
+            <div class="game-card">
+                <a href="games/game5/game5.html">
+                    <img src="game images/sudoku.png" alt="Sudoku">
+                    <div class="game-info">
+                        <h3>Sudoku</h3>
+                        <p> Sudoku is a 9x9 puzzle where you place 1-9 without repeats. Fill rows, columns, and boxes to win!</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript for Dropdown Menu -->
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById("menu-items");
+            menu.style.display = menu.style.display === "block" ? "none" : "block";
+        }
+    </script>
+</body>
+</html>
