@@ -1,0 +1,56 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff;
+    margin: 0;
+    padding: 0;
+  }
+  
+  header {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+  }
+  
+  .trip-form {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .trip-form label,
+  .trip-form select,
+  .trip-form input {
+    display: block;
+    margin: 10px auto;
+    padding: 10px;
+    width: 50%;
+  }
+  
+  button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .trip-results {
+    padding: 20px;
+  }
+  
+  .trip-box {
+    background-color: white;
+    margin: 10px auto;
+    padding: 15px;
+    border-radius: 8px;
+    width: 60%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #4CAF50;
+    color: white;
+  }
+  

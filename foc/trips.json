@@ -1,0 +1,31 @@
+[
+    {
+      "destination": "Munnar",
+      "type": ["trekking", "heritage"],
+      "budget": "low",
+      "duration": 3,
+      "highlights": ["Tea plantations", "Eravikulam National Park"]
+    },
+    {
+      "destination": "Goa",
+      "type": ["beach", "heritage"],
+      "budget": "medium",
+      "duration": 4,
+      "highlights": ["Beaches", "Nightlife", "Old Forts"]
+    },
+    {
+      "destination": "Alleppey",
+      "type": ["beach", "heritage"],
+      "budget": "low",
+      "duration": 2,
+      "highlights": ["Houseboats", "Backwaters"]
+    },
+    {
+      "destination": "Manali",
+      "type": ["trekking"],
+      "budget": "high",
+      "duration": 5,
+      "highlights": ["Snow adventure", "Rohtang Pass"]
+    }
+  ]
+  

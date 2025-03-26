@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>TripMate - Plan Your Trip</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1>TripMate</h1>
+    <p>Plan your trips & explore travel stories!</p>
+  </header>
+
+  <section class="trip-form">
+    <h2>Find Your Perfect Trip</h2>
+    <form onsubmit="event.preventDefault(); getSuggestions();">
+      <label>Budget:</label>
+      <select id="budget">
+        <option value="low">Low</option>
+        <option value="medium">Medium</option>
+        <option value="high">High</option>
+      </select>
+
+      <label>Interest:</label>
+      <select id="interest">
+        <option value="beach">Beach</option>
+        <option value="trekking">Trekking</option>
+        <option value="heritage">Heritage</option>
+      </select>
+
+      <label>Duration (Days):</label>
+      <input type="number" id="duration" placeholder="Enter days" required>
+
+      <button type="submit">Suggest Trips</button>
+    </form>
+  </section>
+
+  <section class="trip-results" id="results">
+    <h2>Suggested Trips</h2>
+    <div id="suggestions"></div>
+  </section>
+
+  <footer>
+    <p>© 2025 TripMate</p>
+  </footer>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
