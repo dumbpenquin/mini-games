@@ -141,3 +141,59 @@ footer {
     background-color: #e8e8e4;
     border-top: 1px solid #ddd;
 }
+/* Mobile Styles */
+@media (max-width: 768px) {
+    .about-container {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .team-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .team-card {
+        width: 90%;
+    }
+
+    .tech-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .tech-card {
+        width: 90%;
+        padding: 8px 12px;
+    }
+}
+
+/* Smaller Mobile Screens */
+@media (max-width: 480px) {
+    .navbar a {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    .about-header h1 {
+        font-size: 2rem;
+    }
+
+    .about-header p {
+        font-size: 1rem;
+    }
+
+    .team-card {
+        padding: 15px;
+        width: 100%;
+    }
+
+    .tech-card {
+        padding: 10px;
+        width: 100%;
+    }
+
+    .footer {
+        font-size: 14px;
+    }
+}
