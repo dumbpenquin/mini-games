@@ -34,6 +34,11 @@ function startGame() {
     displayCards(dealerCardsDiv, [dealerCards[0], "❓"]);
 
     updateScores();
+
+    // Check for immediate Blackjack
+    if (playerScore === 21) {
+        endGame("Blackjack! You win! 🎉");
+    }
 }
 
 // Get random card
@@ -62,18 +67,11 @@ function updateScores(revealDealer = false) {
 
     playerScoreDisplay.innerText = `Score: ${playerScore}`;
 
-    // Show dealer's score only after reveal
+    // Show dealer's score only after reveal or game end
     if (revealDealer || isGameOver) {
         dealerScoreDisplay.innerText = `Score: ${dealerScore}`;
     } else {
         dealerScoreDisplay.innerText = "Score: ?";
-    }
-
-    // Check for Blackjack or Bust
-    if (playerScore === 21) {
-        endGame("Blackjack! You win! 🎉");
-    } else if (playerScore > 21) {
-        endGame("Bust! You lose! 😢");
     }
 }
 
@@ -109,6 +107,13 @@ btnHit.addEventListener("click", () => {
     playerCards.push(getRandomCard());
     displayCards(playerCardsDiv, playerCards);
     updateScores();
+
+    // Check for bust or 21 immediately
+    if (playerScore === 21) {
+        endGame("21! You win! 🎉");
+    } else if (playerScore > 21) {
+        endGame("Bust! You lose! 😢");
+    }
 });
 
 // Player stands
@@ -117,6 +122,7 @@ btnStand.addEventListener("click", () => {
 
     revealDealerCard();
 
+    // Dealer keeps hitting until score is 17 or higher
     while (dealerScore < 17) {
         dealerCards.push(getRandomCard());
         dealerScore = calculateScore(dealerCards);
@@ -128,17 +134,19 @@ btnStand.addEventListener("click", () => {
 // Reveal dealer’s second card
 function revealDealerCard() {
     displayCards(dealerCardsDiv, dealerCards);
-    updateScores(true); // Reveal dealer's score after stand
+    updateScores(true);
 }
 
 // Check winner
 function checkWinner() {
     if (dealerScore > 21) {
         endGame("Dealer busts! You win! 🎉");
+    } else if (playerScore > 21) {
+        endGame("Bust! You lose! 😢");
+    } else if (playerScore > dealerScore) {
+        endGame("You win! 🎉");
     } else if (dealerScore > playerScore) {
         endGame("Dealer wins! 😢");
-    } else if (dealerScore < playerScore) {
-        endGame("You win! 🎉");
     } else {
         endGame("It’s a tie! 🤝");
     }
@@ -147,6 +155,7 @@ function checkWinner() {
 // End game
 function endGame(message) {
     isGameOver = true;
+    revealDealerCard(); // Show dealer's second card after game ends
     resultDisplay.innerText = message;
     resultDisplay.classList.remove("hidden");
     btnRestart.classList.remove("hidden");
@@ -175,3 +184,4 @@ function resetGame() {
     playerCardsDiv.innerHTML = "";
     resultDisplay.innerText = "";
 }
+
