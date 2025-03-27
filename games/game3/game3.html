@@ -1,27 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quick Math Quiz</title>
-    <link rel="stylesheet" href="game3.css">
+    <title>Math Puzzle - Quick Math Quiz</title>
+    <link rel="stylesheet" type="text/css" href="game3.css">
 </head>
 <body>
     <div class="game-container">
-        <h1>Quick Math Quiz</h1>
-        <div class="difficulty">
-            <label for="difficulty">Select Difficulty:</label>
-            <select id="difficulty">
-                <option value="easy">Easy</option>
-                <option value="medium">Medium</option>
-                <option value="hard">Hard</option>
-            </select>
-        </div>
+        <h1>Quick Math Quiz 🧠</h1>
+
         <div id="quiz-container">
             <div id="question">Loading...</div>
             <input type="number" id="answer" placeholder="Enter your answer" />
             <button id="submit-btn">Submit</button>
         </div>
+
+        <div id="scores">
+            <p id="current-score">Current Score: 0</p>
+            <p id="high-score">High Score: 0</p>
+        </div>
+
         <div id="result"></div>
         <button id="restart-btn" class="hidden">Play Again</button>
     </div>
@@ -29,4 +27,3 @@
     <script src="game3.js"></script>
 </body>
 </html>
-
