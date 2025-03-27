@@ -1,14 +1,10 @@
 // Game Variables
 let correctAnswer;
 let timer;
-let difficulty = "easy";
-
-// Difficulty Levels
-const difficultyLevels = {
-    easy: { maxNumber: 10, timeLimit: 10 },
-    medium: { maxNumber: 20, timeLimit: 8 },
-    hard: { maxNumber: 50, timeLimit: 5 }
-};
+let currentScore = 0;
+let highScore = localStorage.getItem("highScore") || 0;
+let maxNumber = 10;  // Start with simple numbers
+let timeLimit = 10;  // Start with 10 seconds
 
 // Generate Random Number
 function getRandomNumber(max) {
@@ -17,10 +13,11 @@ function getRandomNumber(max) {
 
 // Generate New Question
 function generateQuestion() {
-    const level = difficultyLevels[difficulty];
-    const num1 = getRandomNumber(level.maxNumber);
-    const num2 = getRandomNumber(level.maxNumber);
-    const operations = ["+", "-", "*"];
+    const num1 = getRandomNumber(maxNumber);
+    const num2 = getRandomNumber(maxNumber);
+    
+    // More multiplication as difficulty increases
+    const operations = currentScore < 5 ? ["+", "-"] : ["+", "-", "*"];
     const operation = operations[Math.floor(Math.random() * operations.length)];
 
     switch (operation) {
@@ -36,7 +33,7 @@ function generateQuestion() {
     }
 
     document.getElementById("question").innerText = `${num1} ${operation} ${num2}`;
-    resetTimer(level.timeLimit);
+    resetTimer();
 }
 
 // Check User Answer
@@ -44,16 +41,52 @@ function checkAnswer() {
     const userAnswer = parseInt(document.getElementById("answer").value);
 
     if (userAnswer === correctAnswer) {
-        document.getElementById("result").innerText = "🎉 Correct! Good job!";
-        document.getElementById("restart-btn").classList.remove("hidden");
-        clearInterval(timer);
+        currentScore++;
+        increaseDifficulty();
+        updateScores();
+        document.getElementById("result").innerText = "🎉 Correct! Next question...";
+        setTimeout(() => {
+            document.getElementById("answer").value = "";
+            generateQuestion();
+        }, 1000);
     } else {
-        document.getElementById("result").innerText = "❌ Wrong. Try again!";
+        gameOver();
     }
+}
+
+// Increase Difficulty Gradually
+function increaseDifficulty() {
+    if (currentScore % 3 === 0) {
+        maxNumber += 10; // Increase number range every 3 correct answers
+        if (timeLimit > 3) timeLimit--; // Reduce time limit
+    }
+}
+
+// Update Score Display
+function updateScores() {
+    document.getElementById("current-score").innerText = `Current Score: ${currentScore}`;
+    
+    if (currentScore > highScore) {
+        highScore = currentScore;
+        localStorage.setItem("highScore", highScore);
+    }
+
+    document.getElementById("high-score").innerText = `High Score: ${highScore}`;
+}
+
+// Game Over Logic
+function gameOver() {
+    document.getElementById("result").innerText = `❌ Wrong! Game Over. Final Score: ${currentScore}`;
+    document.getElementById("restart-btn").classList.remove("hidden");
+    clearInterval(timer);
 }
 
 // Restart Game
 function restartGame() {
+    currentScore = 0;
+    maxNumber = 10;
+    timeLimit = 10;
+    updateScores();
     document.getElementById("result").innerText = "";
     document.getElementById("restart-btn").classList.add("hidden");
     document.getElementById("answer").value = "";
@@ -61,14 +94,13 @@ function restartGame() {
 }
 
 // Timer Function
-function resetTimer(timeLimit) {
+function resetTimer() {
     clearInterval(timer);
     let timeLeft = timeLimit;
     timer = setInterval(() => {
         if (timeLeft <= 0) {
             clearInterval(timer);
-            document.getElementById("result").innerText = "⏰ Time's up! Try again!";
-            document.getElementById("restart-btn").classList.remove("hidden");
+            gameOver();
         } else {
             document.getElementById("result").innerText = `⏳ Time left: ${timeLeft}s`;
         }
@@ -79,11 +111,8 @@ function resetTimer(timeLimit) {
 // Event Listeners
 document.getElementById("submit-btn").addEventListener("click", checkAnswer);
 document.getElementById("restart-btn").addEventListener("click", restartGame);
-document.getElementById("difficulty").addEventListener("change", (e) => {
-    difficulty = e.target.value;
-    restartGame();
-});
 
 // Initial Game Load
+document.getElementById("high-score").innerText = `High Score: ${highScore}`;
 generateQuestion();
 
