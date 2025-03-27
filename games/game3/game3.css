@@ -1,40 +1,131 @@
+/* General Styles */
 body {
-    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background: #f2f4f8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Game Container */
+.game-container {
     text-align: center;
-    background-color: #f0f8ff;
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    width: 400px;
 }
 
-.container {
-    margin-top: 100px;
-}
-
+/* Heading */
 h1 {
-    color: #333;
+    margin-bottom: 20px;
+    font-size: 28px;
+    color: #2a9d8f;
+}
+
+/* Difficulty Selection */
+.difficulty {
+    margin-bottom: 20px;
+}
+
+select {
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    background: #e9ecef;
+}
+
+/* Quiz Container */
+#quiz-container {
+    margin-bottom: 20px;
 }
 
 #question {
     font-size: 24px;
-    margin: 20px 0;
+    margin-bottom: 10px;
 }
 
-#answer {
-    padding: 10px;
-    font-size: 16px;
+/* Input Field */
+input {
+    padding: 8px;
+    width: 80%;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    margin-bottom: 10px;
 }
 
+/* Buttons */
 button {
     padding: 10px 20px;
-    font-size: 16px;
-    margin-left: 10px;
+    background: #2a9d8f;
+    border: none;
+    border-radius: 6px;
+    color: #fff;
     cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s;
 }
 
-#feedback {
-    margin: 15px;
-    font-size: 18px;
+button:hover {
+    background: #21867a;
 }
 
-#score, #timer {
+button.hidden {
+    display: none;
+}
+
+/* Result */
+#result {
     margin-top: 20px;
     font-size: 18px;
+    font-weight: bold;
 }
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    .game-container {
+        width: 90%;
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    #question {
+        font-size: 20px;
+    }
+
+    input {
+        width: 100%;
+    }
+
+    button {
+        width: 100%;
+    }
+}
+
+/* Smaller Mobile Screens */
+@media (max-width: 480px) {
+    .game-container {
+        width: 95%;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    #question {
+        font-size: 18px;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 8px;
+    }
+}
+
