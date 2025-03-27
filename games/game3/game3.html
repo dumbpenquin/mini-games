@@ -2,22 +2,31 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Math Puzzle Game</title>
-    <link rel="stylesheet" href="game3.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quick Math Quiz</title>
+    <link rel="stylesheet" href="../css/game3.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Quick Math Puzzle</h1>
-        <div id="question">Loading...</div>
-
-        <input type="number" id="answer" placeholder="Your Answer">
-        <button onclick="checkAnswer()">Submit</button>
-
-        <div id="feedback"></div>
-        <div id="score">Score: 0</div>
-        <div id="timer">Time Left: 30s</div>
+    <div class="game-container">
+        <h1>Quick Math Quiz</h1>
+        <div class="difficulty">
+            <label for="difficulty">Select Difficulty:</label>
+            <select id="difficulty">
+                <option value="easy">Easy</option>
+                <option value="medium">Medium</option>
+                <option value="hard">Hard</option>
+            </select>
+        </div>
+        <div id="quiz-container">
+            <div id="question">Loading...</div>
+            <input type="number" id="answer" placeholder="Enter your answer" />
+            <button id="submit-btn">Submit</button>
+        </div>
+        <div id="result"></div>
+        <button id="restart-btn" class="hidden">Play Again</button>
     </div>
 
-    <script src="game3.j"></script>
+    <script src="../js/game3.js"></script>
 </body>
 </html>
+
